@@ -4,7 +4,7 @@ module.exports = async function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
 
     try {
-        const parsedUrl = new URL(req.url);
+        const parsedUrl = new URL(req.url.replaceAll("/api",""));
         const url = new URL(`https://7980.azurewebsites.net${parsedUrl.pathname}${parsedUrl.search}`);
 
         const options = {
